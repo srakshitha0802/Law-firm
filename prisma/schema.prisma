@@ -1,0 +1,224 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String
+  role      String   @default("CLIENT")
+  phone     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  assignedCases    Case[]         @relation("AdvocateCases")
+  clientCases      Case[]         @relation("ClientCases")
+  createdNotes     CaseNote[]
+  documents        Document[]
+  notifications    Notification[]
+  consultationRequests ConsultationRequest[]
+  reminders        Reminder[]
+
+  @@index([role])
+  @@index([createdAt])
+  @@map("users")
+}
+
+model Case {
+  id           String     @id @default(cuid())
+  caseNumber   String     @unique
+  title        String
+  description  String?
+  caseType     String     @default("OTHER")
+  status       String     @default("PENDING")
+  courtName    String
+  clientId     String
+  advocateId   String
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+
+  // Important dates
+  firstHearing DateTime?
+  nextHearing  DateTime?
+  filingDate   DateTime?
+  judgementDate DateTime?
+
+  // Relations
+  client      User         @relation("ClientCases", fields: [clientId], references: [id])
+  advocate    User         @relation("AdvocateCases", fields: [advocateId], references: [id])
+  documents   Document[]
+  notes       CaseNote[]
+  reminders   Reminder[]
+  hearings    Hearing[]
+  notifications Notification[]
+
+  @@index([caseNumber])
+  @@index([status])
+  @@index([caseType])
+  @@index([clientId])
+  @@index([advocateId])
+  @@index([nextHearing])
+  @@map("cases")
+}
+
+model Document {
+  id           String        @id @default(cuid())
+  filename     String
+  originalName String
+  mimeType     String
+  size         Int
+  path         String
+  uploadedById String
+  caseId       String
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  // OCR extracted data
+  extractedText String?
+  summary       String?
+  ocrConfidence Float?
+  signaturesDetected Boolean @default(false)
+  stampsDetected Boolean @default(false)
+  caseNumber    String?
+  partyNames    String?
+  courtName     String?
+  dates         String?
+
+  // Document classification
+  documentType  String        @default("OTHER")
+  
+  // Folder organization
+  folder        String        @default("GENERAL")
+  tags          String?       // JSON array of tags for custom organization
+  
+  // Document status
+  status        String        @default("ACTIVE")
+
+  // Version control
+  version       Int           @default(1)
+  parentDocId   String?
+  isLatest      Boolean       @default(true)
+
+  // Audit trail
+  checksum      String?       // SHA-256 hash for integrity verification
+
+  // Relations
+  uploadedBy User   @relation(fields: [uploadedById], references: [id])
+  case       Case   @relation(fields: [caseId], references: [id], onDelete: Cascade)
+  childDocs  Document[] @relation("DocumentVersions")
+  parentDoc  Document? @relation("DocumentVersions", fields: [parentDocId], references: [id])
+
+  @@index([caseId])
+  @@index([uploadedById])
+  @@index([createdAt])
+  @@index([status])
+  @@index([folder])
+  @@index([documentType])
+  @@map("documents")
+}
+
+model CaseNote {
+  id        String   @id @default(cuid())
+  content   String
+  caseId    String
+  authorId  String
+  isPrivate Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  case   Case @relation(fields: [caseId], references: [id], onDelete: Cascade)
+  author User @relation(fields: [authorId], references: [id])
+
+  @@map("case_notes")
+}
+
+model Reminder {
+  id        String   @id @default(cuid())
+  title     String
+  message   String
+  dueDate   DateTime
+  type      String   @default("CUSTOM")
+  status    String   @default("PENDING")
+  caseId    String
+  userId    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  case Case @relation(fields: [caseId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id])
+
+  @@index([caseId])
+  @@index([userId])
+  @@index([dueDate])
+  @@index([status])
+  @@map("reminders")
+}
+
+model Hearing {
+  id          String      @id @default(cuid())
+  caseId      String
+  date        DateTime
+  time        String
+  courtRoom   String?
+  purpose     String
+  outcome     String?
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  // Relations
+  case Case @relation(fields: [caseId], references: [id], onDelete: Cascade)
+
+  @@map("hearings")
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  title     String
+  message   String
+  type      String   @default("SYSTEM")
+  isRead    Boolean  @default(false)
+  userId    String
+  caseId    String?
+  createdAt DateTime @default(now())
+
+  // Relations
+  user User @relation(fields: [userId], references: [id])
+  case Case? @relation(fields: [caseId], references: [id])
+
+  @@index([userId])
+  @@index([caseId])
+  @@index([isRead])
+  @@index([createdAt])
+  @@map("notifications")
+}
+
+model ConsultationRequest {
+  id          String    @id @default(cuid())
+  name        String
+  email       String
+  phone       String
+  caseType    String?
+  description String
+  preferredDate DateTime?
+  status      String    @default("PENDING")
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  // Relations
+  assignedToId String?
+  assignedTo   User?   @relation(fields: [assignedToId], references: [id])
+
+  @@index([status])
+  @@index([assignedToId])
+  @@index([createdAt])
+  @@map("consultation_requests")
+}

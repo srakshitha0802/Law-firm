@@ -1,65 +1,60 @@
-import Image from "next/image";
+'use client'
+
+import Layout from '@/components/layout/Layout'
+import HeroSection from '@/components/ui/HeroSection'
+import LiveChat from '@/components/ui/LiveChat'
+import NewsTicker from '@/components/ui/NewsTicker'
+import AdvancedStats from '@/components/ui/AdvancedStats'
+import CaseTracker from '@/components/ui/CaseTracker'
+import ConsultationScheduler from '@/components/ui/ConsultationScheduler'
+import TrustBadges from '@/components/ui/TrustBadges'
+import FloatingActionButtons from '@/components/ui/FloatingActionButtons'
+import CostEstimator from '@/components/ui/CostEstimator'
+import LegalAnalytics from '@/components/ui/LegalAnalytics'
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <Layout>
+      <LiveChat />
+      <NewsTicker />
+      <HeroSection />
+      <FloatingActionButtons />
+      <TrustBadges />
+      <AdvancedStats />
+      <CaseTracker />
+      <CostEstimator />
+      <LegalAnalytics />
+      <ConsultationScheduler />
+      
+      {/* Achievement Section */}
+      <section className="py-24 bg-gradient-to-r from-indigo-900 via-blue-900 to-slate-900 text-white relative overflow-hidden">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="mb-8">
+            <h2 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text mb-6 leading-tight">
+              50+ Years of Legal Excellence
+            </h2>
+            <p className="text-2xl text-yellow-100 mb-8 max-w-3xl mx-auto leading-relaxed">
+              A legacy of trust, integrity, and unwavering commitment to justice. 
+              Serving clients across India with dedication and expertise since 1974.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div className="text-center">
+              <div className="text-5xl font-bold text-yellow-400 mb-2 animate-pulse">1000+</div>
+              <div className="text-yellow-100">Cases Won</div>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl font-bold text-yellow-400 mb-2 animate-pulse">25+</div>
+              <div className="text-yellow-100">Court Representations</div>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl font-bold text-yellow-400 mb-2 animate-pulse">98%</div>
+              <div className="text-yellow-100">Success Rate</div>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+      </section>
+    </Layout>
+  )
 }
