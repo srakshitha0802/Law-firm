@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <defs>
+    <path id="textCircleExp" d="M 120, 120 m -85, 0 a 85,85 0 1,1 170,0 a 85,85 0 1,1 -170,0" />
+  </defs>
+  <circle cx="120" cy="120" r="115" fill="#0c1927" stroke="#b38e5d" stroke-width="3"/>
+  <circle cx="120" cy="120" r="65" fill="#142436" stroke="#b38e5d" stroke-dasharray="4 4" stroke-width="1.5"/>
+  <!-- Central Scales of Justice -->
+  <g transform="translate(95, 95) scale(0.21)" fill="#b38e5d">
+    <path d="M100 20 L110 50 L80 50 Z"/>
+    <rect x="92" y="45" width="6" height="120"/>
+    <rect x="30" y="60" width="130" height="6" rx="3"/>
+    <!-- Left pan -->
+    <line x1="45" y1="66" x2="25" y2="110" stroke="#b38e5d" stroke-width="4"/>
+    <line x1="45" y1="66" x2="65" y2="110" stroke="#b38e5d" stroke-width="4"/>
+    <path d="M15 110 Q45 140 75 110 Z" fill="#b38e5d"/>
+    <!-- Right pan -->
+    <line x1="145" y1="66" x2="125" y2="110" stroke="#b38e5d" stroke-width="4"/>
+    <line x1="145" y1="66" x2="165" y2="110" stroke="#b38e5d" stroke-width="4"/>
+    <path d="M115 110 Q145 140 175 110 Z" fill="#b38e5d"/>
+    <!-- Base -->
+    <path d="M70 165 L120 165 L110 180 L80 180 Z" fill="#b38e5d"/>
+  </g>
+  <text font-family="'Cardo', serif, 'Cinzel'" font-size="13.5" font-weight="bold" fill="#d4af37" letter-spacing="3.5">
+    <textPath href="#textCircleExp" startOffset="0%">
+      • OUR EXPERTISE • LEGAL MASTERY • ADVOCACY •
+    </textPath>
+  </text>
+</svg>

@@ -1,0 +1,610 @@
+/* ==========================================================================
+   SEKHAR ASSOCIATES - DOODLE ANIMATIONS & LUXURY STYLING
+   Inspired by aglaw.in signature hand-drawn legal artistry, rotating seals,
+   contour topography, and bespoke interactive strokes.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. DOODLE UNDERLINES & HIGHLIGHTS
+   -------------------------------------------------------------------------- */
+.doodle-highlight-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.doodle-underline-svg {
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 100%;
+  height: 20px;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 2;
+}
+
+.doodle-underline-svg path {
+  stroke: #d4af37;
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  fill: none;
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  transition: stroke-dashoffset 1.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.doodle-underline-svg.drawn path,
+.doodle-highlight-wrap.in-view .doodle-underline-svg path {
+  stroke-dashoffset: 0;
+}
+
+/* Double wavy underline */
+.doodle-double-underline-svg {
+  position: absolute;
+  left: 0;
+  bottom: -16px;
+  width: 100%;
+  height: 24px;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 2;
+}
+
+.doodle-double-underline-svg path {
+  stroke-linecap: round;
+  fill: none;
+  stroke-dasharray: 450;
+  stroke-dashoffset: 450;
+  transition: stroke-dashoffset 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.doodle-double-underline-svg path.line-1 {
+  stroke: #d4af37;
+  stroke-width: 3.2;
+}
+
+.doodle-double-underline-svg path.line-2 {
+  stroke: #b38e5d;
+  stroke-width: 2.2;
+  transition-delay: 0.25s;
+}
+
+.doodle-double-underline-svg.drawn path,
+.doodle-highlight-wrap.in-view .doodle-double-underline-svg path {
+  stroke-dashoffset: 0;
+}
+
+/* --------------------------------------------------------------------------
+   2. DOODLE CIRCLE / OVAL HIGHLIGHT
+   -------------------------------------------------------------------------- */
+.doodle-circle-wrap {
+  position: relative;
+  display: inline-block;
+  padding: 0 8px;
+}
+
+.doodle-circle-svg {
+  position: absolute;
+  left: -12%;
+  top: -24%;
+  width: 124%;
+  height: 148%;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 2;
+}
+
+.doodle-circle-svg path {
+  stroke: #d4af37;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  stroke-dasharray: 700;
+  stroke-dashoffset: 700;
+  transition: stroke-dashoffset 1.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.doodle-circle-svg.drawn path,
+.doodle-circle-wrap.in-view .doodle-circle-svg path {
+  stroke-dashoffset: 0;
+}
+
+/* --------------------------------------------------------------------------
+   3. HAND-DRAWN DOODLE ARROW WITH MARGINALIA
+   -------------------------------------------------------------------------- */
+.doodle-arrow-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 20px;
+  vertical-align: middle;
+}
+
+.doodle-arrow-svg {
+  width: 65px;
+  height: 42px;
+  overflow: visible;
+}
+
+.doodle-arrow-svg path {
+  stroke: #d4af37;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  transition: stroke-dashoffset 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.doodle-arrow-svg.drawn path,
+.in-view .doodle-arrow-svg path {
+  stroke-dashoffset: 0;
+}
+
+.doodle-handwritten-note {
+  font-family: 'Cardo', Georgia, serif;
+  font-style: italic;
+  font-size: 15px;
+  color: #d4af37;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   4. SPARKLES & STARBURST DOODLES
+   -------------------------------------------------------------------------- */
+.doodle-sparkle {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  pointer-events: none;
+  animation: doodleSparklePulse 3s ease-in-out infinite;
+  z-index: 3;
+}
+
+.doodle-sparkle svg {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes doodleSparklePulse {
+  0%, 100% {
+    transform: scale(0.8) rotate(0deg);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.25) rotate(45deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 6px #d4af37);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. ROTATING DOODLE BADGES (aglaw.in signature effect)
+   -------------------------------------------------------------------------- */
+.doodle-rotating-badge {
+  position: relative;
+  width: 210px;
+  height: 210px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.doodle-rotating-badge:hover {
+  transform: scale(1.06);
+}
+
+.doodle-rotating-badge .badge-text-ring {
+  width: 100%;
+  height: 100%;
+  animation: spinTextRing 20s linear infinite;
+  transform-origin: center center;
+}
+
+.doodle-rotating-badge:hover .badge-text-ring {
+  animation-duration: 10s;
+}
+
+.doodle-rotating-badge .badge-center-emblem {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #1a2736 0%, #0c1927 100%);
+  border: 1.5px solid #d4af37;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.25), inset 0 0 15px rgba(0, 0, 0, 0.6);
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.doodle-rotating-badge:hover .badge-center-emblem {
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.45), inset 0 0 20px rgba(212, 175, 55, 0.2);
+}
+
+.doodle-rotating-badge .badge-center-emblem svg {
+  width: 48px;
+  height: 48px;
+}
+
+@keyframes spinTextRing {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes spinTextRingReverse {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* --------------------------------------------------------------------------
+   6. FLOATING DOODLE ORBITING ICONS (Around Hero Reception Image)
+   -------------------------------------------------------------------------- */
+.hero-doodle-orbit {
+  position: relative;
+  display: inline-block;
+}
+
+.floating-doodle-icon {
+  position: absolute;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #233548 0%, #0d1a29 85%);
+  border: 2px solid rgba(212, 175, 55, 0.7);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45), 0 0 15px rgba(212, 175, 55, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(8px);
+}
+
+.floating-doodle-icon img,
+.floating-doodle-icon svg {
+  width: 36px;
+  height: 36px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+  transition: transform 0.3s ease;
+}
+
+.floating-doodle-icon:hover {
+  transform: scale(1.15) !important;
+  border-color: #ffd700;
+  box-shadow: 0 15px 35px rgba(212, 175, 55, 0.5), 0 0 25px rgba(212, 175, 55, 0.5);
+}
+
+.floating-doodle-icon:hover img,
+.floating-doodle-icon:hover svg {
+  transform: rotate(8deg) scale(1.1);
+}
+
+.floating-doodle-icon.orbit-1 {
+  top: 4%;
+  right: 18%;
+  animation: floatOrbit1 6s ease-in-out infinite;
+}
+
+.floating-doodle-icon.orbit-2 {
+  top: 48%;
+  right: -5%;
+  animation: floatOrbit2 7.5s ease-in-out infinite;
+}
+
+.floating-doodle-icon.orbit-3 {
+  bottom: 8%;
+  left: 2%;
+  animation: floatOrbit3 6.8s ease-in-out infinite;
+}
+
+.floating-doodle-icon.orbit-4 {
+  top: 15%;
+  left: 3%;
+  animation: floatOrbit4 8.2s ease-in-out infinite;
+}
+
+@keyframes floatOrbit1 {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-16px) rotate(4deg); }
+}
+
+@keyframes floatOrbit2 {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-14px) rotate(-5deg); }
+}
+
+@keyframes floatOrbit3 {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-18px) rotate(6deg); }
+}
+
+@keyframes floatOrbit4 {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(-4deg); }
+}
+
+/* --------------------------------------------------------------------------
+   7. ANIMATED TOPOGRAPHIC CONTOUR DOODLES (aglaw.in signature background)
+   -------------------------------------------------------------------------- */
+.doodle-contour-canvas-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.doodle-contour-svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.18;
+}
+
+.doodle-contour-svg path {
+  fill: none;
+  stroke: #d4af37;
+  stroke-width: 1.2;
+  stroke-dasharray: 8 6;
+  animation: contourDrift 60s linear infinite;
+}
+
+.doodle-contour-svg path.contour-solid {
+  stroke-dasharray: none;
+  stroke-width: 1;
+  opacity: 0.7;
+}
+
+@keyframes contourDrift {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 1000; }
+}
+
+/* --------------------------------------------------------------------------
+   8. NOTARY ADVOCACY SEAL / VINTAGE EMBOSSED DOODLE STAMP
+   -------------------------------------------------------------------------- */
+.doodle-notary-seal {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 3px dashed #b38e5d;
+  background: radial-gradient(circle, rgba(212,175,55,0.08) 0%, rgba(12,25,39,0.02) 80%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 15px;
+  box-shadow: 0 0 25px rgba(179, 142, 93, 0.15);
+  transform: rotate(-8deg);
+  transition: transform 0.4s ease, border-color 0.4s ease;
+  user-select: none;
+}
+
+.doodle-notary-seal:hover {
+  transform: rotate(0deg) scale(1.05);
+  border-color: #d4af37;
+}
+
+.doodle-notary-seal .seal-star {
+  color: #d4af37;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.doodle-notary-seal .seal-title {
+  font-family: 'DM Serif Display', 'Cardo', serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0c1927;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 4px 0;
+}
+
+.doodle-notary-seal .seal-subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+  color: #b38e5d;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Dark mode seal */
+.doodle-notary-seal.dark-theme {
+  border-color: #d4af37;
+  background: radial-gradient(circle, rgba(212,175,55,0.15) 0%, rgba(12,25,39,0.4) 80%);
+}
+
+.doodle-notary-seal.dark-theme .seal-title {
+  color: #f5f5f5;
+}
+
+/* --------------------------------------------------------------------------
+   9. INTERACTIVE FLOATING QUICK-CONTACT ACTION BUTTON
+   -------------------------------------------------------------------------- */
+.floating-quick-cta {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #1b2c40 0%, #0c1927 100%);
+  border: 1.5px solid #d4af37;
+  border-radius: 50px;
+  padding: 10px 22px 10px 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.35);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.floating-quick-cta:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(212, 175, 55, 0.6);
+  border-color: #ffd700;
+}
+
+.floating-quick-cta .cta-icon-pulse {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #d4af37 0%, #b38e5d 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  color: #0c1927;
+  font-size: 18px;
+  position: relative;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.6);
+}
+
+.floating-quick-cta .cta-icon-pulse::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 50%;
+  border: 1.5px solid #d4af37;
+  animation: ctaPulse 2s ease-out infinite;
+}
+
+@keyframes ctaPulse {
+  0% { transform: scale(1); opacity: 0.9; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+.floating-quick-cta .cta-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.floating-quick-cta .cta-text .main-lbl {
+  font-family: 'Cardo', Georgia, serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.floating-quick-cta .cta-text .sub-lbl {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  color: #d4af37;
+  font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   10. GOLDEN INK CURSOR SPARKLE TRAIL
+   -------------------------------------------------------------------------- */
+.golden-particle {
+  position: fixed;
+  pointer-events: none;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffe082 20%, #d4af37 80%);
+  box-shadow: 0 0 8px #d4af37;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  animation: particleFade 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes particleFade {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.1) translateY(18px);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   11. LUXURY SECTION TRANSITIONS & BORDER FLOURISHES
+   -------------------------------------------------------------------------- */
+.doodle-divider-wrap {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 0;
+  overflow: hidden;
+}
+
+.doodle-divider-svg {
+  width: 320px;
+  max-width: 90%;
+  height: 28px;
+}
+
+.doodle-divider-svg path {
+  stroke: #b38e5d;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  fill: none;
+  opacity: 0.7;
+}
+
+/* --------------------------------------------------------------------------
+   12. MOBILE RESPONSIVENESS FOR DOODLES
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .doodle-arrow-container {
+    display: none;
+  }
+  .floating-doodle-icon {
+    width: 52px;
+    height: 52px;
+  }
+  .floating-doodle-icon img,
+  .floating-doodle-icon svg {
+    width: 26px;
+    height: 26px;
+  }
+  .doodle-rotating-badge {
+    width: 160px;
+    height: 160px;
+  }
+  .doodle-rotating-badge .badge-center-emblem {
+    width: 70px;
+    height: 70px;
+  }
+  .floating-quick-cta {
+    bottom: 16px;
+    right: 16px;
+    padding: 8px 16px 8px 10px;
+  }
+  .floating-quick-cta .cta-icon-pulse {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+    margin-right: 8px;
+  }
+  .floating-quick-cta .cta-text .main-lbl {
+    font-size: 13px;
+  }
+  .floating-quick-cta .cta-text .sub-lbl {
+    font-size: 10px;
+  }
+}

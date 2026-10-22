@@ -1,0 +1,461 @@
+/* ==========================================================================
+   SEKHAR ASSOCIATES - ADVANCED PREMIUM STYLING & VECTOR ICONS
+   Supreme Court & International Chambers Luxury Aesthetic
+   ========================================================================== */
+
+/* Enhanced Typography & Gold Gradients */
+.font-crest {
+  font-family: var(--font-crest), Georgia, serif;
+  letter-spacing: 1.5px;
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #d4af37 0%, #f7e7b4 50%, #b38e5d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.border-gold-glow {
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.12);
+}
+
+/* Bespoke Vector SVG Legal Icon Containers */
+.luxury-icon-wrap {
+  width: 58px;
+  height: 58px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #182332 0%, #0c1622 100%);
+  border: 1.5px solid rgba(212, 175, 55, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.luxury-icon-wrap:hover {
+  transform: translateY(-4px) scale(1.08);
+  border-color: #d4af37;
+  box-shadow: 0 12px 28px rgba(212, 175, 55, 0.25);
+}
+
+.luxury-icon-wrap svg {
+  width: 30px;
+  height: 30px;
+  fill: none;
+  stroke: #d4af37;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.3s ease;
+}
+
+.luxury-icon-wrap:hover svg {
+  stroke: #f7e7b4;
+  transform: scale(1.08);
+}
+
+/* Light background variant for cards */
+.luxury-icon-light {
+  background: linear-gradient(135deg, #fdfbf7 0%, #f5efe6 100%);
+  border: 1.5px solid rgba(179, 142, 93, 0.4);
+  box-shadow: 0 6px 18px rgba(179, 142, 93, 0.15);
+}
+
+.luxury-icon-light svg {
+  stroke: #b38e5d;
+}
+
+.luxury-icon-light:hover svg {
+  stroke: #182332;
+}
+
+/* Verified Credential Badges & Dossier Styling */
+.dossier-credentials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.cred-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: #f4eee6;
+  color: #332720;
+  border: 1px solid rgba(179, 142, 93, 0.35);
+  letter-spacing: 0.3px;
+}
+
+.cred-pill-gold {
+  background: linear-gradient(135deg, #182332 0%, #0e1724 100%);
+  color: #d4af37;
+  border: 1px solid #d4af37;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.2);
+}
+
+.cred-pill-verified::before {
+  content: "✓";
+  display: inline-block;
+  color: #27ae60;
+  font-weight: 900;
+  font-size: 13px;
+}
+
+.dossier-subheading {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  color: #111;
+  margin: 20px 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 1.5px solid rgba(179, 142, 93, 0.3);
+}
+
+.dossier-list {
+  padding-left: 20px;
+  margin-bottom: 18px;
+}
+
+.dossier-list li {
+  font-size: 14.5px;
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+
+.dossier-footer-info {
+  background: #fbf9f5;
+  border: 1px solid rgba(179, 142, 93, 0.25);
+  border-radius: 8px;
+  padding: 14px 18px;
+  font-size: 13.5px;
+  color: #555;
+  line-height: 1.7;
+  margin-top: 18px;
+}
+
+.dossier-footer-info strong {
+  color: #111;
+}
+
+/* Practice Area Legal Tags */
+.statute-tag {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 600;
+  background: rgba(212, 175, 55, 0.12);
+  color: #8c6d37;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  padding: 2px 10px;
+  border-radius: 4px;
+  margin-right: 6px;
+  margin-bottom: 6px;
+}
+
+/* Milestone Timeline for About Us */
+.chambers-timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 40px auto 0;
+  padding: 20px 0;
+}
+
+.chambers-timeline::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  background: linear-gradient(180deg, #d4af37 0%, rgba(212, 175, 55, 0.2) 100%);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1px;
+}
+
+@media (max-width: 768px) {
+  .chambers-timeline::after {
+    left: 28px;
+  }
+}
+
+.timeline-item {
+  padding: 10px 40px;
+  position: relative;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-item.right {
+  left: 50%;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .timeline-item.left,
+  .timeline-item.right {
+    width: 100%;
+    left: 0;
+    padding-left: 65px;
+    padding-right: 15px;
+    text-align: left;
+  }
+}
+
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  right: -9px;
+  background: #ffffff;
+  border: 4px solid #d4af37;
+  top: 22px;
+  border-radius: 50%;
+  z-index: 1;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+}
+
+.timeline-item.right::after {
+  left: -9px;
+}
+
+@media (max-width: 768px) {
+  .timeline-item.left::after,
+  .timeline-item.right::after {
+    left: 19px;
+  }
+}
+
+.timeline-content-card {
+  padding: 24px 28px;
+  background: #ffffff;
+  border-radius: 10px;
+  border-top: 3px solid #d4af37;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease;
+}
+
+.timeline-content-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 35px rgba(179, 142, 93, 0.18);
+}
+
+.timeline-year {
+  font-family: var(--font-crest), Georgia, serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #b38e5d;
+  margin-bottom: 6px;
+}
+
+.timeline-content-card h4 {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  color: #111;
+  margin-bottom: 8px;
+}
+
+.timeline-content-card p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Executive Chamber Card */
+.executive-chamber-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(179, 142, 93, 0.3);
+}
+
+.executive-chamber-card img {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  display: block;
+}
+
+.executive-chamber-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30px;
+  background: linear-gradient(180deg, transparent 0%, rgba(12, 25, 39, 0.95) 100%);
+  color: #ffffff;
+}
+
+.executive-chamber-overlay h4 {
+  font-family: var(--font-crest), Georgia, serif;
+  font-size: 20px;
+  color: #d4af37;
+  margin-bottom: 6px;
+}
+
+.executive-chamber-overlay p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+/* Practice Area Luxury List Items */
+.pa_rgt ul li a {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px;
+  padding: 12px 18px !important;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+}
+
+.pa_rgt ul li a:hover {
+  background: rgba(212, 175, 55, 0.08);
+  transform: translateX(6px);
+}
+
+.pa_rgt ul li a:hover .luxury-icon-wrap {
+  transform: scale(1.1);
+  border-color: #d4af37;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
+}
+
+.pa_rgt ul li a:hover .luxury-icon-wrap svg {
+  stroke: #f7e7b4;
+}
+
+.pa_rgt .prdct_list {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 15.5px;
+  color: #242424;
+}
+
+/* People Dossier Luxury Action Buttons */
+.advocate-action-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid #f0ebe2;
+}
+
+.btn-dossier-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #1b1612 0%, #3a2a1f 100%);
+  color: #d4af37 !important;
+  border: 1px solid #d4af37;
+  padding: 9px 20px;
+  border-radius: 6px;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-dossier-primary:hover {
+  background: #d4af37;
+  color: #1b1612 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.35);
+}
+
+.btn-dossier-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff;
+  color: #222 !important;
+  border: 1px solid #ddd;
+  padding: 9px 16px;
+  border-radius: 6px;
+  font-size: 13.5px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.btn-dossier-phone:hover {
+  border-color: #27ae60;
+  color: #27ae60 !important;
+  background: #f4faf6;
+}
+
+.btn-dossier-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #25D366;
+  color: #ffffff !important;
+  border: 1px solid #25D366;
+  padding: 9px 16px;
+  border-radius: 6px;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.btn-dossier-wa:hover {
+  background: #1eb956;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+}
+
+/* Luxury Insights Card Improvements */
+.insight-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 12.5px;
+  color: #777;
+  margin-bottom: 12px;
+}
+
+.insight-author-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: #332720;
+}
+
+/* Contact Page Refinements */
+.contact-method-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 16px;
+  border-radius: 10px;
+  background: #fbf9f6;
+  border: 1px solid #f0ebe2;
+  margin-bottom: 16px;
+  transition: all 0.25s ease;
+}
+
+.contact-method-card:hover {
+  background: #ffffff;
+  border-color: #d4af37;
+  box-shadow: 0 6px 20px rgba(179, 142, 93, 0.15);
+  transform: translateX(4px);
+}
+
